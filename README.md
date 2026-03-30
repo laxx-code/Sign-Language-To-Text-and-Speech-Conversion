@@ -7,7 +7,7 @@
  
  The Final Outcome Of Our Project...
  
- https://user-images.githubusercontent.com/99630855/201496149-e7004402-16b2-4d72-8e1a-ff20c422c565.mp4
+ 
 
 
 
@@ -18,7 +18,7 @@
 In our project we basically focus on producing a model which can recognise Fingerspelling based hand gestures in order to form a complete word by combining each gesture. The gestures we aim to train are as given in the image below. 
 
 
-![Spanish_SL](https://user-images.githubusercontent.com/99630855/201489493-585ffe5c-f460-402a-b558-0d03370b4f92.jpg)
+!
 
 **Requirements:**
 
