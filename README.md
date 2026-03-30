@@ -221,3 +221,33 @@ Python libraries: OpenCV, NumPy, Keras,mediapipe,Tensorflow
 ![sequence2](https://user-images.githubusercontent.com/99630855/201490230-b903c365-7a4c-4972-8268-5687060b9cd0.png)
 
  
+
+
+ #DOWNLOADING NECCESARY LIBARARIES
+ 
+C:\Sign-Language-To-Text-and-Speech-Conversion\Sign-Language-To-Text-and-Speech-Conversion
+PS C:\Sign-Language-To-Text-and-Speech-Conversion\Sign-Language-To-Text-and-Speech-Conversion>
+python -m venv venv
+.\venv\Scripts\activate
+python -m pip install --upgrade pip
+pip install --no-cache-dir tensorflow
+pip install keras
+pip install opencv-python
+pip install cvzone
+pip install numpy
+pip install pyttsx3
+pip install pillow
+pip install tk
+python -c "import tensorflow as tf; print(tf.__version__)"
+python App.py
+
+
+
+
+to run file
+ cd "C:\Users\LAXMI\OneDrive\Desktop\Sign-Language-To-Text-and-Speech-Conversion\Sign-Language-To-Text-and-Speech-Conversion"
+>> 
+(venv) PS C:\Users\LAXMI\OneDrive\Desktop\Sign-Language-To-Text-and-Speech-Conversion\Sign-Language-To-Text-and-Speech-Conversion> python App.py
+
+to actitvate venev :  
+& C:\Users\LAXMI\OneDrive\Desktop\Sign-Language-To-Text-and-Speech-Conversion\venv\Scripts\Activate.ps1

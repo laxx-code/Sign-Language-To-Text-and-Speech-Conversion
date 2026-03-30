@@ -5,7 +5,7 @@ import cv2
 import os, sys
 import traceback
 import pyttsx3
-from keras.models import load_model
+from tensorflow.keras.models import load_model
 from cvzone.HandTrackingModule import HandDetector
 from string import ascii_uppercase
 import enchant
@@ -80,22 +80,22 @@ class Application:
         self.T3.place(x=10, y=632)
         self.T3.config(text="Sentence :", font=("Courier", 30, "bold"))
 
-        self.T4 = tk.Label(self.root)
-        self.T4.place(x=10, y=700)
-        self.T4.config(text="Suggestions :", fg="red", font=("Courier", 30, "bold"))
+        # self.T4 = tk.Label(self.root)
+        # self.T4.place(x=10, y=700)
+        # self.T4.config(text="Suggestions :", fg="red", font=("Courier", 30, "bold"))
 
 
-        self.b1=tk.Button(self.root)
-        self.b1.place(x=390,y=700)
+        # self.b1=tk.Button(self.root)
+        # self.b1.place(x=390,y=700)
 
-        self.b2 = tk.Button(self.root)
-        self.b2.place(x=590, y=700)
+        # self.b2 = tk.Button(self.root)
+        # self.b2.place(x=590, y=700)
 
-        self.b3 = tk.Button(self.root)
-        self.b3.place(x=790, y=700)
+        # self.b3 = tk.Button(self.root)
+        # self.b3.place(x=790, y=700)
 
-        self.b4 = tk.Button(self.root)
-        self.b4.place(x=990, y=700)
+        # self.b4 = tk.Button(self.root)
+        # self.b4.place(x=990, y=700)
 
         self.speak = tk.Button(self.root)
         self.speak.place(x=1305, y=630)
@@ -200,10 +200,10 @@ class Application:
 
 
 
-                            self.b1.config(text=self.word1, font=("Courier", 20), wraplength=825, command=self.action1)
-                            self.b2.config(text=self.word2, font=("Courier", 20), wraplength=825,  command=self.action2)
-                            self.b3.config(text=self.word3, font=("Courier", 20), wraplength=825,  command=self.action3)
-                            self.b4.config(text=self.word4, font=("Courier", 20), wraplength=825,  command=self.action4)
+                            # self.b1.config(text=self.word1, font=("Courier", 20), wraplength=825, command=self.action1)
+                            # self.b2.config(text=self.word2, font=("Courier", 20), wraplength=825,  command=self.action2)
+                            # self.b3.config(text=self.word3, font=("Courier", 20), wraplength=825,  command=self.action3)
+                            # self.b4.config(text=self.word4, font=("Courier", 20), wraplength=825,  command=self.action4)
 
                 self.panel5.config(text=self.str, font=("Courier", 30), wraplength=1025)
         except Exception:
@@ -280,10 +280,10 @@ class Application:
 
 
 
-                    self.b1.config(text=self.word1, font=("Courier", 20), wraplength=825, command=self.action1)
-                    self.b2.config(text=self.word2, font=("Courier", 20), wraplength=825,  command=self.action2)
-                    self.b3.config(text=self.word3, font=("Courier", 20), wraplength=825,  command=self.action3)
-                    self.b4.config(text=self.word4, font=("Courier", 20), wraplength=825,  command=self.action4)
+                    # self.b1.config(text=self.word1, font=("Courier", 20), wraplength=825, command=self.action1)
+                    # self.b2.config(text=self.word2, font=("Courier", 20), wraplength=825,  command=self.action2)
+                    # self.b3.config(text=self.word3, font=("Courier", 20), wraplength=825,  command=self.action3)
+                    # self.b4.config(text=self.word4, font=("Courier", 20), wraplength=825,  command=self.action4)
 
             self.panel5.config(text=self.str, font=("Courier", 30), wraplength=1025)
         except Exception:
@@ -677,7 +677,7 @@ class Application:
             ch1 = 'L'
 
         if ch1 == 6:
-            ch1 = 'X'
+            ch1 = 'Speak'
 
         if ch1 == 5:
             if self.pts[4][0] > self.pts[12][0] and self.pts[4][0] > self.pts[16][0] and self.pts[4][0] > self.pts[20][0]:
@@ -733,7 +733,7 @@ class Application:
                 ch1="next"
 
 
-        if ch1 == 'Next' or 'B' or 'C' or 'H' or 'F' or 'X':
+        if ch1 == 'Next' or 'B' or 'C' or 'H' or 'F' or 'Speak':
             if (self.pts[0][0] > self.pts[8][0] and self.pts[0][0] > self.pts[12][0] and self.pts[0][0] > self.pts[16][0] and self.pts[0][0] > self.pts[20][0]) and (self.pts[4][1] < self.pts[8][1] and self.pts[4][1] < self.pts[12][1] and self.pts[4][1] < self.pts[16][1] and self.pts[4][1] < self.pts[20][1]) and (self.pts[4][1] < self.pts[6][1] and self.pts[4][1] < self.pts[10][1] and self.pts[4][1] < self.pts[14][1] and self.pts[4][1] < self.pts[18][1]):
                 ch1 = 'Backspace'
 
@@ -755,6 +755,11 @@ class Application:
 
         self.prev_char=ch1
         self.current_symbol=ch1
+        # Speak automatically when "X" is detected
+        if ch1 == 'Speak':
+            self.speak_engine.say(self.str.strip())
+            self.speak_engine.runAndWait()
+
         self.count += 1
         self.ten_prev_char[self.count%10]=ch1
 
